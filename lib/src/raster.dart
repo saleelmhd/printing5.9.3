@@ -78,11 +78,11 @@ class PdfRasterImage extends ImageProvider<PdfRaster> {
 
   Future<ImageInfo> _loadAsync() async {
     final uiImage = await raster.toImage();
-    return ImageInfo(image: uiImage, scale: 1);
+    return ImageInfo(image: uiImage, scale: 1,);
   }
 
   @override
-  ImageStreamCompleter load(PdfRaster key, DecoderCallback decode) {
+  ImageStreamCompleter loadImage(PdfRaster key, ImageDecoderCallback decode) {
     return OneFrameImageStreamCompleter(_loadAsync());
   }
 
